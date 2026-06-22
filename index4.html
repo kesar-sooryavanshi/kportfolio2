@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pink Neon 3D Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+html{scroll-behavior:smooth} body{background:#070010;color:#fff;overflow-x:hidden}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#ff4fd8,#ffb3f3);z-index:9999;width:0}
+nav{position:fixed;top:0;width:100%;padding:20px 7%;display:flex;justify-content:space-between;background:rgba(0,0,0,.25);backdrop-filter:blur(15px);z-index:999}
+nav a{color:white;text-decoration:none;margin-left:20px}
+section{min-height:100vh;padding:120px 8%}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:40px}
+h1{font-size:5rem}.pink{color:#ff5de4}
+.hero3d{width:420px;height:420px;position:relative;transform-style:preserve-3d;animation:spin 18s linear infinite}
+.tower{position:absolute;bottom:0;width:90px;background:linear-gradient(#ff4fd8,#ffb3f3);opacity:.8;border-radius:8px}
+.t1{left:20px;height:220px}.t2{left:130px;height:320px}.t3{left:240px;height:170px}.t4{left:330px;height:260px}
+.hero3d{transform:rotateX(65deg)}
+@keyframes spin{from{transform:rotateX(65deg) rotateZ(0)}to{transform:rotateX(65deg) rotateZ(360deg)}}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);padding:28px;border-radius:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.title{font-size:3rem;margin-bottom:40px}
+.reveal{opacity:0;transform:translateY(80px)}
+.projects{display:flex;gap:30px;overflow:auto;padding-bottom:20px}
+.project{min-width:350px;height:320px}
+.project:hover{transform:translateY(-10px) scale(1.03)}
+.timeline{border-left:3px solid #ff69e8;padding-left:25px}
+.step{margin:50px 0}
+.glow{position:fixed;width:300px;height:300px;border-radius:50%;background:#ff4fd8;filter:blur(120px);opacity:.15;pointer-events:none}
+footer{text-align:center;padding:40px}
+@media(max-width:900px){.hero{flex-direction:column;text-align:center}h1{font-size:3rem}.hero3d{width:280px;height:280px}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="glow" id="glow"></div>
+
+<nav>
+<div><b>KESAR</b></div>
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+<div>
+<h1><span class="pink">KESAR</span><br>JOSHI</h1>
+<p>Futuristic scrolling portfolio with neon storytelling and 3D-inspired architecture.</p>
+</div>
+<div class="hero3d">
+<div class="tower t1"></div><div class="tower t2"></div><div class="tower t3"></div><div class="tower t4"></div>
+</div>
+</section>
+
+<section id="about"><h2 class="title reveal">About Me</h2><div class="card reveal">Building projects, learning AI, participating in hackathons, and aiming to create a Super App.</div></section>
+
+<section id="skills"><h2 class="title reveal">Skills</h2>
+<div class="grid">
+<div class="card reveal">Frontend Development</div>
+<div class="card reveal">Backend Development</div>
+<div class="card reveal">Python & AI</div>
+<div class="card reveal">UI/UX Design</div>
+</div></section>
+
+<section><h2 class="title reveal">Journey</h2>
+<div class="timeline">
+<div class="step reveal">2026 - Started BTech</div>
+<div class="step reveal">2027 - Internship Focus</div>
+<div class="step reveal">2028 - Startup Launch</div>
+</div></section>
+
+<section id="projects">
+<h2 class="title reveal">Projects</h2>
+<div class="projects">
+<div class="card project reveal">AI Chatbot</div>
+<div class="card project reveal">Student Management System</div>
+<div class="card project reveal">Weather Platform</div>
+<div class="card project reveal">Super App Concept</div>
+<div class="card project reveal">Portfolio Collection</div>
+</div>
+</section>
+
+<section><h2 class="title reveal">Vision</h2><div class="card reveal">Create impactful software products and grow into a founder-engineer.</div></section>
+
+<section id="contact"><h2 class="title reveal">Contact</h2><div class="card reveal">Email • LinkedIn • GitHub</div></section>
+
+<footer>© 2026 Kesar Portfolio</footer>
+
+<script>
+const p=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+let h=document.documentElement;
+p.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';
+});
+
+const glow=document.getElementById('glow');
+document.addEventListener('mousemove',e=>{
+glow.style.left=(e.clientX-150)+'px';
+glow.style.top=(e.clientY-150)+'px';
+});
+
+const io=new IntersectionObserver(es=>{
+es.forEach(e=>{
+if(e.isIntersecting){
+e.target.animate([{opacity:0,transform:'translateY(80px)'},{opacity:1,transform:'translateY(0px)'}],{duration:900,fill:'forwards'});
+}
+});
+},{threshold:.15});
+
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body></html>
