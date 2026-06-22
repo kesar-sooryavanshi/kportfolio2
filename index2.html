@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kesar Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    backdrop-filter:blur(12px);
+    background:rgba(5,8,22,.75);
+    z-index:1000;
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    background:linear-gradient(45deg,#00d4ff,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+section{
+    min-height:100vh;
+    padding:120px 10%;
+}
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content h1{
+    font-size:5rem;
+    margin-bottom:15px;
+}
+
+.hero-content span{
+    background:linear-gradient(45deg,#00d4ff,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+    max-width:700px;
+    margin:auto;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(45deg,#00d4ff,#7c3aed);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.title{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:60px;
+}
+
+.about-box,
+.contact-box{
+    max-width:900px;
+    margin:auto;
+    background:#111827;
+    padding:40px;
+    border-radius:25px;
+}
+
+.about-box p{
+    line-height:2;
+    color:#d1d5db;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.skill{
+    background:#111827;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-10px);
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:#111827;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+}
+
+.project-img{
+    height:220px;
+    background:linear-gradient(45deg,#00d4ff,#7c3aed);
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content p{
+    color:#cbd5e1;
+    margin-top:10px;
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:#1f2937;
+    color:white;
+}
+
+.contact-box button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#00d4ff,#7c3aed);
+    color:white;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#94a3b8;
+}
+
+.glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#7c3aed;
+    filter:blur(250px);
+    opacity:.2;
+    top:-150px;
+    right:-150px;
+    pointer-events:none;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:3rem;
+}
+
+nav ul{
+    display:none;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<nav>
+<div class="nav-container">
+<div class="logo">KESAR</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="home" class="hero">
+<div class="hero-content">
+<h1>Hello, I'm <span>Kesar</span></h1>
+<p>
+BTech Student • Future Full Stack Developer • Building Projects,
+Learning AI, and Working Toward Creating a Super App.
+</p>
+<a href="#projects" class="btn">View Projects</a>
+</div>
+</section>
+
+<section id="about">
+<h2 class="title">About Me</h2>
+
+<div class="about-box">
+<p>
+I am a passionate developer focused on web development,
+AI applications, and startup building. I enjoy turning ideas
+into real products and continuously improving my skills through
+projects and hackathons.
+</p>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="title">Skills</h2>
+
+<div class="skills">
+
+<div class="skill">
+<h3>HTML & CSS</h3>
+</div>
+
+<div class="skill">
+<h3>JavaScript</h3>
+</div>
+
+<div class="skill">
+<h3>React</h3>
+</div>
+
+<div class="skill">
+<h3>Node.js</h3>
+</div>
+
+<div class="skill">
+<h3>Python</h3>
+</div>
+
+<div class="skill">
+<h3>AI & LLMs</h3>
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<div class="project-img"></div>
+<div class="project-content">
+<h3>AI Chatbot</h3>
+<p>Modern chatbot powered by AI models.</p>
+</div>
+</div>
+
+<div class="project">
+<div class="project-img"></div>
+<div class="project-content">
+<h3>Student Management System</h3>
+<p>Complete academic management platform.</p>
+</div>
+</div>
+
+<div class="project">
+<div class="project-img"></div>
+<div class="project-content">
+<h3>Weather App</h3>
+<p>Beautiful weather dashboard with forecasts.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">Contact Me</h2>
+
+<div class="contact-box">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="6" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</div>
+</section>
+
+<footer>
+© 2026 Kesar Portfolio. All Rights Reserved.
+</footer>
+
+</body>
+</html>
