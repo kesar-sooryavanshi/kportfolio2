@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pink 3D Scrolling Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#090011;color:#fff;overflow-x:hidden}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#ff4fd8,#ffb3f3);z-index:9999;width:0}
+nav{position:fixed;top:0;width:100%;padding:18px 8%;display:flex;justify-content:space-between;backdrop-filter:blur(12px);background:rgba(15,0,25,.35);z-index:1000}
+nav a{color:white;text-decoration:none;margin-left:20px}
+section{min-height:100vh;padding:120px 8%}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:40px}
+h1{font-size:5rem;line-height:1}
+.pink{color:#ff69e8}
+.btn{display:inline-block;margin-top:25px;padding:14px 30px;border-radius:40px;background:linear-gradient(45deg,#ff4fd8,#ff92ef);color:#fff;text-decoration:none}
+.architecture{width:420px;height:420px;position:relative;transform-style:preserve-3d;animation:spin 14s linear infinite}
+.cube{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,79,216,.5),rgba(255,179,243,.15));border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px);transform:rotateX(65deg) rotateZ(45deg)}
+.cube:nth-child(2){transform:translateY(-80px) rotateX(65deg) rotateZ(45deg)}
+.cube:nth-child(3){transform:translateY(-160px) rotateX(65deg) rotateZ(45deg)}
+@keyframes spin{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);padding:30px;border-radius:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.title{font-size:3rem;margin-bottom:30px}
+.project{height:260px;transition:.4s}
+.project:hover{transform:translateY(-10px) rotateX(5deg)}
+.timeline{border-left:2px solid #ff69e8;padding-left:25px}
+.item{margin:40px 0}
+.counter{font-size:3rem;color:#ff8ceb}
+.contact input,.contact textarea{width:100%;padding:14px;margin:10px 0;background:#1b0825;border:none;border-radius:12px;color:white}
+.contact button{width:100%;padding:14px;border:none;border-radius:12px;background:#ff4fd8;color:white}
+.glow{position:fixed;width:350px;height:350px;border-radius:50%;background:#ff4fd8;filter:blur(130px);opacity:.18;pointer-events:none}
+footer{text-align:center;padding:40px}
+@media(max-width:900px){
+.hero{flex-direction:column;text-align:center}
+h1{font-size:3rem}
+.architecture{width:280px;height:280px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="glow" id="glow"></div>
+
+<nav>
+<div><b>KESAR</b></div>
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+<div>
+<h1><span class="pink">KESAR</span><br>JOSHI</h1>
+<p style="margin-top:20px;max-width:600px">A futuristic pink-themed portfolio with long scrolling storytelling and 3D-inspired architecture.</p>
+<a href="#about" class="btn">Start Journey</a>
+</div>
+<div class="architecture">
+<div class="cube"></div>
+<div class="cube"></div>
+<div class="cube"></div>
+</div>
+</section>
+
+<section id="about">
+<h2 class="title">About</h2>
+<div class="card">
+<p>First-year BTech student building projects, exploring AI, web development, hackathons, and working toward creating a future Super App.</p>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="title">Skills Universe</h2>
+<div class="grid">
+<div class="card">HTML & CSS</div>
+<div class="card">JavaScript</div>
+<div class="card">React</div>
+<div class="card">Node.js</div>
+<div class="card">Python</div>
+<div class="card">AI & LLMs</div>
+</div>
+</section>
+
+<section>
+<h2 class="title">Statistics</h2>
+<div class="grid">
+<div class="card"><div class="counter">20+</div>Projects</div>
+<div class="card"><div class="counter">10+</div>Hackathons</div>
+<div class="card"><div class="counter">1000+</div>Learning Hours</div>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="title">Projects</h2>
+<div class="grid">
+<div class="card project">AI Chatbot</div>
+<div class="card project">Student Management System</div>
+<div class="card project">Weather Dashboard</div>
+<div class="card project">Quiz Platform</div>
+<div class="card project">Portfolio Collection</div>
+<div class="card project">Future Super App</div>
+</div>
+</section>
+
+<section>
+<h2 class="title">Journey</h2>
+<div class="timeline">
+<div class="item"><h3>2026</h3><p>Started BTech and project building.</p></div>
+<div class="item"><h3>2027</h3><p>Internships and advanced development.</p></div>
+<div class="item"><h3>2028</h3><p>Launch startup products.</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="title">Vision</h2>
+<div class="card">
+Build impactful products, participate in hackathons, gain internships, and eventually create a scalable Super App ecosystem.
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">Contact</h2>
+<div class="card contact">
+<input placeholder="Your Name">
+<input placeholder="Email">
+<textarea rows="6" placeholder="Message"></textarea>
+<button>Send Message</button>
+</div>
+</section>
+
+<footer>© 2026 Kesar Joshi • Pink 3D Portfolio</footer>
+
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+const h=document.documentElement;
+const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+progress.style.width=sc+'%';
+});
+
+const glow=document.getElementById('glow');
+document.addEventListener('mousemove',e=>{
+glow.style.left=(e.clientX-175)+'px';
+glow.style.top=(e.clientY-175)+'px';
+});
+
+const cards=document.querySelectorAll('.card');
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.animate([
+{opacity:0,transform:'translateY(60px)'},
+{opacity:1,transform:'translateY(0)'}
+],{duration:900,fill:'forwards'});
+}
+});
+});
+cards.forEach(c=>obs.observe(c));
+</script>
+</body>
+</html>
