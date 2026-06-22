@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Portfolio Layouts</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#111827;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:30px;
+    background:#1f2937;
+    position:sticky;
+    top:0;
+}
+
+select{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.portfolio{
+    display:none;
+    min-height:100vh;
+    padding:50px 20px;
+}
+
+.active{
+    display:block;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 0;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:.8;
+}
+
+.card{
+    background:#1f2937;
+    padding:20px;
+    border-radius:12px;
+    margin:15px 0;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+button{
+    padding:10px 20px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h2>10 Portfolio Layouts</h2>
+<br>
+<select id="themeSwitcher">
+<option value="1">1. Modern Developer</option>
+<option value="2">2. Minimal Portfolio</option>
+<option value="3">3. Glassmorphism</option>
+<option value="4">4. Dark Professional</option>
+<option value="5">5. Creative Designer</option>
+<option value="6">6. Startup Founder</option>
+<option value="7">7. AI Engineer</option>
+<option value="8">8. Corporate Portfolio</option>
+<option value="9">9. Luxury Portfolio</option>
+<option value="10">10. Futuristic Portfolio</option>
+</select>
+</header>
+
+<!-- Portfolio 1 -->
+<section class="portfolio active" id="p1">
+<div class="container">
+<div class="hero">
+<h1>Modern Developer</h1>
+<p>Clean and professional developer portfolio.</p>
+</div>
+
+<div class="grid">
+<div class="card">About Me</div>
+<div class="card">Skills</div>
+<div class="card">Projects</div>
+<div class="card">Contact</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 2 -->
+<section class="portfolio" id="p2" style="background:white;color:black;">
+<div class="container">
+<div class="hero">
+<h1>Minimal Portfolio</h1>
+<p>Simple black & white design.</p>
+</div>
+
+<div class="card">About</div>
+<div class="card">Projects</div>
+<div class="card">Contact</div>
+</div>
+</section>
+
+<!-- Portfolio 3 -->
+<section class="portfolio" id="p3"
+style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">
+<div class="container">
+<div class="hero">
+<h1>Glassmorphism</h1>
+<p>Modern glass UI design.</p>
+</div>
+
+<div class="card" style="backdrop-filter:blur(10px);">
+Glass Card
+</div>
+</div>
+</section>
+
+<!-- Portfolio 4 -->
+<section class="portfolio" id="p4"
+style="background:#000;">
+<div class="container">
+<div class="hero">
+<h1>Dark Professional</h1>
+<p>Elegant dark theme.</p>
+</div>
+
+<div class="grid">
+<div class="card">Experience</div>
+<div class="card">Projects</div>
+<div class="card">Achievements</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 5 -->
+<section class="portfolio" id="p5"
+style="background:#ec4899;">
+<div class="container">
+<div class="hero">
+<h1>Creative Designer</h1>
+<p>Colorful designer portfolio.</p>
+</div>
+
+<div class="grid">
+<div class="card">Behance Work</div>
+<div class="card">Dribbble Shots</div>
+<div class="card">UI Designs</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 6 -->
+<section class="portfolio" id="p6"
+style="background:#059669;">
+<div class="container">
+<div class="hero">
+<h1>Startup Founder</h1>
+<p>Show your startup journey.</p>
+</div>
+
+<div class="grid">
+<div class="card">Vision</div>
+<div class="card">Products</div>
+<div class="card">Team</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 7 -->
+<section class="portfolio" id="p7"
+style="background:#312e81;">
+<div class="container">
+<div class="hero">
+<h1>AI Engineer</h1>
+<p>Machine Learning & AI projects.</p>
+</div>
+
+<div class="grid">
+<div class="card">LLMs</div>
+<div class="card">AI Projects</div>
+<div class="card">Research</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 8 -->
+<section class="portfolio" id="p8"
+style="background:#334155;">
+<div class="container">
+<div class="hero">
+<h1>Corporate Portfolio</h1>
+<p>Professional corporate style.</p>
+</div>
+
+<div class="grid">
+<div class="card">Experience</div>
+<div class="card">Education</div>
+<div class="card">Certifications</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 9 -->
+<section class="portfolio" id="p9"
+style="background:#1c1917;color:#d4af37;">
+<div class="container">
+<div class="hero">
+<h1>Luxury Portfolio</h1>
+<p>Premium gold & black theme.</p>
+</div>
+
+<div class="grid">
+<div class="card">Biography</div>
+<div class="card">Services</div>
+<div class="card">Clients</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio 10 -->
+<section class="portfolio" id="p10"
+style="background:#020617;">
+<div class="container">
+<div class="hero">
+<h1>Futuristic Portfolio</h1>
+<p>Next generation digital identity.</p>
+</div>
+
+<div class="grid">
+<div class="card">3D Projects</div>
+<div class="card">Innovations</div>
+<div class="card">Technology Stack</div>
+</div>
+</div>
+</section>
+
+<script>
+
+const switcher = document.getElementById("themeSwitcher");
+
+switcher.addEventListener("change", () => {
+
+document.querySelectorAll(".portfolio")
+.forEach(p => p.classList.remove("active"));
+
+document.getElementById(
+"p" + switcher.value
+).classList.add("active");
+
+});
+
+</script>
+
+</body>
+</html>
