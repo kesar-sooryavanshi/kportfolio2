@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcham Classes</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0b0b0b;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at top right, rgba(255, 106, 0, 0.30), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(255, 106, 0, 0.18), transparent 22%),
+        radial-gradient(circle at center, rgba(255, 106, 0, 0.08), transparent 32%),
+        linear-gradient(to bottom, #0b0b0b, #111111, #0b0b0b);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 106, 0, 0.15);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #ff6a00;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .tagline {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .mobile-menu a:hover {
+      color: #ff6a00;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      background: #111;
+      border-top: 1px solid rgba(255, 106, 0, 0.15);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: #ff6a00;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 18px;
+      font-weight: 600;
+      box-shadow: 0 0 30px rgba(255, 106, 0, 0.35);
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #d95500;
+      transform: translateY(-2px);
+    }
+
+    .btn-small {
+      padding: 12px 20px;
+      border-radius: 14px;
+    }
+
+    .btn-outline {
+      background: rgba(36, 23, 15, 0.7);
+      border: 1px solid rgba(255, 106, 0, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(42, 27, 18, 1);
+    }
+
+    .full-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      padding: 80px 0 100px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(36, 23, 15, 0.7);
+      border: 1px solid rgba(255, 106, 0, 0.25);
+      color: #ff9a56;
+      font-size: 14px;
+    }
+
+    .hero-text h2 {
+      font-size: 58px;
+      line-height: 1.15;
+      margin-top: 22px;
+      font-weight: 800;
+    }
+
+    .hero-text h2 span {
+      color: #ff6a00;
+    }
+
+    .hero-text p {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 18px;
+      line-height: 1.9;
+      max-width: 620px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 38px;
+    }
+
+    .stat-card {
+      background: rgba(36, 23, 15, 0.7);
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      padding: 24px 18px;
+      border-radius: 28px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      color: #ff6a00;
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .stat-card p {
+      font-size: 14px;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .hero-image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      background: linear-gradient(to bottom, #1a120d, #141414);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-image-card img {
+      height: 560px;
+      object-fit: cover;
+      opacity: 0.92;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .overlay-box {
+      background: rgba(0, 0, 0, 0.52);
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      border-radius: 22px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .overlay-box p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    .overlay-box h4 {
+      color: #ff6a00;
+      margin-top: 8px;
+      font-size: 22px;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding-bottom: 90px;
+    }
+
+    .feature-card,
+    .course-card,
+    .class-card,
+    .review-card,
+    .register-info,
+    .register-form-box {
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      background: linear-gradient(to bottom, #1b120c, #181818);
+      border-radius: 30px;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .feature-card h3,
+    .course-card h3,
+    .class-card h3,
+    .review-card h4 {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .feature-card p,
+    .course-card p,
+    .class-card p,
+    .review-card p,
+    .register-info p {
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.9;
+    }
+
+    /* Section title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title p,
+    .mini-title,
+    .sub {
+      color: #ff6a00;
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .section-title h2,
+    .register-info h2,
+    .cta-box h2 {
+      font-size: 46px;
+      margin-top: 14px;
+      font-weight: 800;
+    }
+
+    .section-title span {
+      display: block;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    /* Grids */
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 28px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Course */
+    .course-card h4 {
+      color: #ff6a00;
+      font-size: 28px;
+      margin: 24px 0;
+      font-weight: 800;
+    }
+
+    /* Class cards */
+    .class-badge {
+      display: inline-block;
+      background: rgba(255, 106, 0, 0.15);
+      color: #ff9a56;
+      padding: 10px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .class-card ul {
+      margin: 24px 0;
+    }
+
+    .class-card ul li {
+      background: rgba(36, 23, 15, 0.7);
+      border: 1px solid rgba(255, 106, 0, 0.15);
+      padding: 14px 18px;
+      border-radius: 18px;
+      margin-bottom: 12px;
+    }
+
+    /* Dark section */
+    .dark-section {
+      background: rgba(18, 13, 9, 0.8);
+    }
+
+    /* Toppers */
+    .topper-card {
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      background: linear-gradient(to bottom, #1a120d, #141414);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .topper-card img {
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .topper-content {
+      padding: 24px;
+    }
+
+    .topper-content h3 {
+      color: #ff6a00;
+      font-size: 28px;
+    }
+
+    .topper-content p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 8px;
+    }
+
+    .topper-content h4 {
+      margin-top: 18px;
+      font-size: 34px;
+      font-weight: 800;
+    }
+
+    /* Gallery */
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 106, 0, 0.2);
+    }
+
+    .gallery-card img {
+      height: 340px;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.15));
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+    }
+
+    .gallery-overlay h3 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* Reviews */
+    .review-card p {
+      font-size: 18px;
+    }
+
+    .stars {
+      color: #ff6a00;
+      margin: 24px 0 12px;
+      font-size: 20px;
+    }
+
+    /* Register */
+    .register-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .icon-box {
+      width: fit-content;
+      background: rgba(255, 106, 0, 0.15);
+      color: #ff6a00;
+      padding: 16px;
+      border-radius: 18px;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .register-points {
+      margin-top: 30px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .register-points div {
+      background: rgba(36, 23, 15, 0.7);
+      border: 1px solid rgba(255, 106, 0, 0.15);
+      padding: 16px 18px;
+      border-radius: 18px;
+    }
+
+    .register-form-box h3 {
+      font-size: 30px;
+      margin-bottom: 24px;
+    }
+
+    .register-form-box form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .register-form-box input,
+    .register-form-box select {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 106, 0, 0.15);
+      background: rgba(36, 23, 15, 0.7);
+      color: white;
+      outline: none;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .register-form-box input:focus,
+    .register-form-box select:focus {
+      border-color: #ff6a00;
+    }
+
+    /* CTA */
+    .cta-box {
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      background: linear-gradient(to right, #2b1709, #171717);
+      border-radius: 40px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .cta-box p {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.72);
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 106, 0, 0.15);
+      background: #000;
+      padding: 70px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .footer h3 {
+      font-size: 34px;
+      color: #ff6a00;
+      font-weight: 800;
+    }
+
+    .footer h4 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .footer p,
+    .footer li {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+    }
+
+    .footer ul {
+      display: grid;
+      gap: 10px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      padding: 12px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 106, 0, 0.2);
+      background: rgba(36, 23, 15, 0.7);
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #ff6a00;
+      border-color: rgba(255, 106, 0, 0.4);
+    }
+
+    .copyright {
+      margin-top: 50px;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .hero,
+      .register-wrap,
+      .footer-grid,
+      .grid-4,
+      .grid-3,
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-text h2,
+      .section-title h2,
+      .register-info h2,
+      .cta-box h2 {
+        font-size: 40px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .btn-small {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero,
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .features,
+      .register-wrap,
+      .footer-grid,
+      .hero-overlay {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+
+      .hero-text h2,
+      .section-title h2,
+      .register-info h2,
+      .cta-box h2 {
+        font-size: 32px;
+      }
+
+      .hero-image-card img {
+        height: 420px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-card,
+      .course-card,
+      .class-card,
+      .review-card,
+      .register-info,
+      .register-form-box {
+        padding: 24px;
+      }
+
+      .cta-box {
+        padding: 40px 24px;
+        border-radius: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <div class="logo-box">
+        <h1 class="logo">Parcham Classes</h1>
+        <p class="tagline">Learn • Practice • Succeed</p>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#courses">Courses</a>
+        <a href="#classes">Classes</a>
+        <a href="#results">Results</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#register">Register</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#register" class="btn btn-small">Register Now</a>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#courses">Courses</a>
+      <a href="#classes">Classes</a>
+      <a href="#results">Results</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-text">
+      <div class="badge">⭐ Trusted Coaching Institute</div>
+
+      <h2>Study Smarter with <span>Parcham Classes</span></h2>
+
+      <p>
+        Premium coaching platform for school students with structured classes,
+        concept clarity, doubt solving, notes, tests and result-focused preparation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#register" class="btn">Start Learning</a>
+        <a href="https://youtube.com/" target="_blank" class="btn btn-outline">Watch Demo</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card"><h3>5K+</h3><p>Students</p></div>
+        <div class="stat-card"><h3>50+</h3><p>Teachers</p></div>
+        <div class="stat-card"><h3>95%</h3><p>Success</p></div>
+        <div class="stat-card"><h3>100+</h3><p>Tests</p></div>
+      </div>
+    </div>
+
+    <div class="hero-image-card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop" alt="Parcham Classes Hero">
+      <div class="hero-overlay">
+        <div class="overlay-box">
+          <p>Live Classes</p>
+          <h4>Daily Smart Sessions</h4>
+        </div>
+        <div class="overlay-box">
+          <p>Study Material</p>
+          <h4>Notes + Tests</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features container">
+    <div class="feature-card">
+      <h3>📘 Structured Courses</h3>
+      <p>Premium learning experience designed for serious students.</p>
+    </div>
+    <div class="feature-card">
+      <h3>👨‍🏫 Expert Faculty</h3>
+      <p>Experienced teachers with easy and effective teaching methods.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🏆 Top Results</h3>
+      <p>Result-oriented preparation with consistent performance support.</p>
+    </div>
+    <div class="feature-card">
+      <h3>✅ Doubt Support</h3>
+      <p>Quick doubt solving and strong concept clarity for every student.</p>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="section container">
+    <div class="section-title">
+      <p>COURSES</p>
+      <h2>Our Popular Batches</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="course-card">
+        <p class="sub">Class 9–10</p>
+        <h3>Foundation Batch</h3>
+        <p>Strong concepts, school preparation, olympiad support and regular practice.</p>
+        <h4>Best for beginners</h4>
+        <a href="#register" class="btn full-btn">Join Batch</a>
+      </div>
+
+      <div class="course-card">
+        <p class="sub">Class 11–12</p>
+        <h3>Board Mastery</h3>
+        <p>Complete syllabus coverage, revision strategy, notes and test series.</p>
+        <h4>Board focused</h4>
+        <a href="#register" class="btn full-btn">Join Batch</a>
+      </div>
+
+      <div class="course-card">
+        <p class="sub">Advanced</p>
+        <h3>Target Batch</h3>
+        <p>Focused preparation for high performance and competitive growth.</p>
+        <h4>Top performer batch</h4>
+        <a href="#register" class="btn full-btn">Join Batch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Classes -->
+  <section id="classes" class="section container">
+    <div class="section-title">
+      <p>PROGRAMS</p>
+      <h2>Classes 9 to 12 Subjects</h2>
+      <span>Professional coaching for Mathematics, Physics and Chemistry.</span>
+    </div>
+
+    <div class="grid-4">
+      <div class="class-card">
+        <div class="class-badge">Class 9</div>
+        <h3>Class 9 Program</h3>
+        <p>Strong foundation building with concept clarity and school support.</p>
+        <ul>
+          <li>Mathematics</li>
+          <li>Physics</li>
+          <li>Chemistry</li>
+        </ul>
+        <a href="#register" class="btn full-btn">Explore Class 9</a>
+      </div>
+
+      <div class="class-card">
+        <div class="class-badge">Class 10</div>
+        <h3>Class 10 Program</h3>
+        <p>Board-focused preparation with revision tests and smart notes.</p>
+        <ul>
+          <li>Mathematics</li>
+          <li>Physics</li>
+          <li>Chemistry</li>
+        </ul>
+        <a href="#register" class="btn full-btn">Explore Class 10</a>
+      </div>
+
+      <div class="class-card">
+        <div class="class-badge">Class 11</div>
+        <h3>Class 11 Program</h3>
+        <p>Advanced academic preparation with deep concept understanding.</p>
+        <ul>
+          <li>Mathematics</li>
+          <li>Physics</li>
+          <li>Chemistry</li>
+        </ul>
+        <a href="#register" class="btn full-btn">Explore Class 11</a>
+      </div>
+
+      <div class="class-card">
+        <div class="class-badge">Class 12</div>
+        <h3>Class 12 Program</h3>
+        <p>Targeted preparation for boards and exam excellence.</p>
+        <ul>
+          <li>Mathematics</li>
+          <li>Physics</li>
+          <li>Chemistry</li>
+        </ul>
+        <a href="#register" class="btn full-btn">Explore Class 12</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="section dark-section">
+    <div class="container">
+      <div class="section-title">
+        <p>RESULTS</p>
+        <h2>Our Top Achievers</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="topper-card">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop" alt="Topper 1">
+          <div class="topper-content">
+            <h3>Student Name</h3>
+            <p>Top Result</p>
+            <h4>96.4%</h4>
+          </div>
+        </div>
+
+        <div class="topper-card">
+          <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop" alt="Topper 2">
+          <div class="topper-content">
+            <h3>Student Name</h3>
+            <p>Top Result</p>
+            <h4>94.8%</h4>
+          </div>
+        </div>
+
+        <div class="topper-card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Topper 3">
+          <div class="topper-content">
+            <h3>Student Name</h3>
+            <p>Top Result</p>
+            <h4>Top Rank</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements" class="section container">
+    <div class="section-title">
+      <p>GALLERY</p>
+      <h2>Achievements & Campus Moments</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop" alt="Achievement 1">
+        <div class="gallery-overlay"><h3>5000+ Students Taught</h3></div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop" alt="Achievement 2">
+        <div class="gallery-overlay"><h3>Board Toppers Every Year</h3></div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop" alt="Achievement 3">
+        <div class="gallery-overlay"><h3>Smart Classroom Learning</h3></div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Achievement 4">
+        <div class="gallery-overlay"><h3>Weekly Test Excellence</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="section dark-section">
+    <div class="container">
+      <div class="section-title">
+        <p>REVIEWS</p>
+        <h2>What Students Say</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="review-card">
+          <p>“Best coaching for concept clarity and regular tests.”</p>
+          <div class="stars">★★★★★</div>
+          <h4>Student Review</h4>
+        </div>
+
+        <div class="review-card">
+          <p>“Teachers explain every topic in simple and easy way.”</p>
+          <div class="stars">★★★★★</div>
+          <h4>Student Review</h4>
+        </div>
+
+        <div class="review-card">
+          <p>“Affordable fees and excellent study material.”</p>
+          <div class="stars">★★★★★</div>
+          <h4>Student Review</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register -->
+  <section id="register" class="section container">
+    <div class="register-wrap">
+      <div class="register-info">
+        <div class="icon-box">📝</div>
+        <p class="mini-title">REGISTER</p>
+        <h2>Quick Student Registration</h2>
+        <p>
+          Students can quickly register for enquiry, admission updates,
+          demo classes and batch information.
+        </p>
+
+        <div class="register-points">
+          <div>✔ Easy registration form</div>
+          <div>✔ Useful for demo & admission leads</div>
+          <div>✔ Fast student enquiry collection</div>
+        </div>
+      </div>
+
+      <div class="register-form-box">
+        <h3>Register Now</h3>
+        <form id="registerForm">
+          <input type="text" placeholder="Enter your name" required>
+          <input type="tel" placeholder="Enter your phone number" required>
+
+          <select required>
+            <option value="">Select Class</option>
+            <option>Class 9</option>
+            <option>Class 10</option>
+            <option>Class 11</option>
+            <option>Class 12</option>
+          </select>
+
+          <select required>
+            <option value="">Select Subject</option>
+            <option>Mathematics</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+            <option>All Subjects</option>
+          </select>
+
+          <button type="submit" class="btn full-btn">Submit Registration</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section container">
+    <div class="cta-box">
+      <h2>Ready to Join Parcham Classes?</h2>
+      <p>Start your academic journey with structured guidance and expert mentorship.</p>
+      <a href="#register" class="btn">Get Admission Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Parcham Classes</h3>
+        <p>
+          Professional coaching institute website with premium design and
+          strong student-focused branding.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Courses</li>
+          <li>Admissions</li>
+          <li>Results</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <p>📍 Your Coaching Address</p>
+        <p>📞 +91 XXXXX XXXXX</p>
+        <p>✉ yourmail@gmail.com</p>
+
+        <div class="socials">
+          <a href="https://youtube.com/" target="_blank">YouTube</a>
+          <a href="https://instagram.com/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 Parcham Classes. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      if (mobileMenu.style.display === "flex") {
+        mobileMenu.style.display = "none";
+      } else {
+        mobileMenu.style.display = "flex";
+      }
+    });
+
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Registration submitted successfully!");
+    });
+  </script>
+
+</body>
+</html>
